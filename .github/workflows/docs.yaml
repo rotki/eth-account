@@ -1,6 +1,9 @@
 name: Docs
 
-on: ["push", "pull_request"]
+on:
+  push:
+    branches: [main]
+  pull_request:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -11,14 +14,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
       with:
         fetch-depth: 0
 
     - name: Setup Python
-      uses: astral-sh/setup-uv@v7
+      uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990  # v8.3.2
       with:
-        python-version: "3.10"
+        python-version: "3.14"
 
     - name: Generate API Docs
       run: uv run --group docs sphinx-apidoc -o docs/ . "conftest*" "tests" "tests/*"
