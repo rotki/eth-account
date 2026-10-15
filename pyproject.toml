@@ -30,7 +30,7 @@ classifiers = [
 ]
 dependencies = [
     "bitarray==3.8.2",
-    "eth-abi==5.2.0",
+    "eth-abi==6.0.0",
     "eth-keyfile==0.10.0",
     "eth-keys==0.8.0",
     "eth-rlp==3.0.0",
@@ -96,7 +96,7 @@ eth_account = [
 ]
 
 [tool.setuptools_scm]
-fallback_version = "0.14.0b1"
+fallback_version = "0.14.0"
 
 [tool.mypy]
 exclude = [
